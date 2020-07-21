@@ -1,0 +1,24 @@
+{
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "browser-action.png",
+    "default_title": "Save tab to OmniFocus"
+  },
+  "description": "Save tab or link to OmniFocus",
+  "icons": {
+    "16": "icon16.png",
+    "128": "icon128.png"
+  },
+  "manifest_version": 2,
+  "name": "Save to OmniFocus",
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "version": "1.0.0"
+}
