@@ -2,7 +2,7 @@ const contextMenuId = 'save-to-omnifocus';
 
 chrome.contextMenus.create({
   id: contextMenuId,
-  title: 'Save to OmniFocus',
+  title: 'Save to OmniFocus (dev)',
   contexts: ['page', 'selection', 'link']
 });
 
@@ -11,7 +11,10 @@ function saveToOmniFocus(task) {
     ? `omnifocus:///add?name=${encodeURIComponent(task.name)}&amp;note=${encodeURIComponent(task.note)}`
     : `omnifocus:///add?name=${encodeURIComponent(task.note)}`;
 
-  document.body.insertAdjacentHTML('afterend', `<iframe src="${url}" style="display:none" />`);
+  chrome.tabs.create({
+    url,
+    active: false
+  });
 }
 
 chrome.browserAction.onClicked.addListener(function (tab) {
@@ -24,7 +27,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
       } else {
         saveToOmniFocus({
           name: window.getSelection().toString() || document.title,
-          note: window.location.toString(),
+          note: window.location.toString()
         });
       }
     }
