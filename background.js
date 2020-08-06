@@ -2,13 +2,13 @@ const contextMenuId = 'save-to-omnifocus';
 
 chrome.contextMenus.create({
   id: contextMenuId,
-  title: 'Save to OmniFocus (dev)',
+  title: 'Save to OmniFocus',
   contexts: ['page', 'selection', 'link']
 });
 
 function saveToOmniFocus(task) {
   const url = task.name
-    ? `omnifocus:///add?name=${encodeURIComponent(task.name)}&amp;note=${encodeURIComponent(task.note)}`
+    ? `omnifocus:///add?name=${encodeURIComponent(task.name)}&note=${encodeURIComponent(task.note)}`
     : `omnifocus:///add?name=${encodeURIComponent(task.note)}`;
 
   chrome.tabs.create({
