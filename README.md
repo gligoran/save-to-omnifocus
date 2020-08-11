@@ -6,7 +6,7 @@ Chrome extension that add a toolbar button and a context menu action to save a l
 
 When using the extension you might get this popup:
 
-![Open OmniFocus](https://user-images.githubusercontent.com/183153/89340331-6d71e880-d654-11ea-99f8-320c2ccd0349.png)
+![Open OmniFocus Popup](open-omnifocus-popup.png)
 
 [That's a known issue.](https://superuser.com/questions/1492714/chrome-prompting-for-custom-protocol-handlers-every-time-after-update) There used to be a checkbox on that popup that allowed Chrome to remember your choice, but it was removed with Chrome 77.
 
