@@ -13,7 +13,7 @@ When using the extension you might get this popup:
 A way to make that popup go away is by adding the `omnifocus://` protocol to the `[URLWhitelist](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=URLWhitelist) via this command:
 
 ```
-defaults write com.google.Chrome URLWhitelist -array-add 'omnifocus://*'
+defaults write com.google.Chrome URLAllowlist -array-add 'omnifocus://*'
 ```
 
-Once added it will show up in `chrome://policy/`.
+Once added, it will require a reload of Chrome policy or a restart of Chrome.  To reload the policy or confirm the setting, type `chrome://policy` in the address bar.  Click the `Reload Policy` button to reload.  If the setting is configured it will show in the `Chrome Policies` section, along with a link to the Chrome `URLAllowlist` documentation.
