@@ -30,6 +30,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
           note: window.location.toString()
         });
       }
+	  chrome.tabs.remove(tab.id);
     }
   );
 });
@@ -41,5 +42,6 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
       note: info.linkUrl || info.pageUrl
     };
     saveToOmniFocus(task);
+	chrome.tabs.remove(tab.id);
   }
 });
