@@ -17,17 +17,19 @@ function saveToOmniFocus(task) {
   });
 }
 
-chrome.browserAction.onClicked.addListener(function (tab) {
-  chrome.tabs.executeScript(
-    tab.tabId,
-    { file: 'tabinfo.js' },
-    function (result) {
-      if (result && result.length) {
-        saveToOmniFocus(result[0]);
+chrome.action.onClicked.addListener(function (tab) {
+  chrome.scripting.executeScript(
+    {
+      target: { tabId: tab.id },
+      files: ['tabinfo.js']
+    },
+    function (results) {
+      if (results && results.length && results[0].result) {
+        saveToOmniFocus(results[0].result);
       } else {
         saveToOmniFocus({
-          name: window.getSelection().toString() || document.title,
-          note: window.location.toString()
+          name: tab.title,
+          note: tab.url
         });
       }
     }
